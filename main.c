@@ -23,13 +23,13 @@ typedef enum {	COMMAND_INVALID = -1,
 
 /* constant strings */
 const char * command_strings[COMMAND_MAX] = {
-	"start",
-	"hilfe",
-	"abbestellen",
-	"bestellen",
-	"kaufen",
-	"gekauft",
-	"bezahlen"
+	"/start",
+	"/hilfe",
+	"/abbestellen",
+	"/bestellen",
+	"/kaufen",
+	"/gekauft",
+	"/bezahlen"
 };
 
 const char * welcome_message = "WELCOME\n";
@@ -148,6 +148,7 @@ void process_message(telebot_handler_t handle, telebot_message_t * message) {
 			query_return = database_get_int(query_string);
 			snprintf(query_string, sizeof(query_string), "Liebe(r) %s, du musst %d Broetchen bezahlen", message->from->first_name, query_return);
 			reply_text = query_string;
+			break;
 		default:
 			reply_text = "\U0001f595";
 			reply_text = NULL;

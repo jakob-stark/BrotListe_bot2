@@ -1,5 +1,7 @@
 .token
 
+*.db
+
 # Prerequisites
 *.d
 
